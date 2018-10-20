@@ -2,6 +2,19 @@ import request from "request";
 import NetworkUtil from "./NetworkUtil";
 
 export default function Authentication(callback) {
+    let code = window.location.search ? window.location.search.substr(1).split("&").find(s => s.startsWith("code=")) : null;
+    if (code) {
+        code = code.substr(5);
+        request.post(NetworkUtil.buildURL("/auth/login"), {
+            "body": code
+        }, (err, res, body) => {
+            if (err || !body) {
+                window.location.href = "/error/102";
+            } else {
+                callback(body);
+            }
+        });
+    }
     request(NetworkUtil.buildURL("/auth/check"), (err, res, body) => {
         if (err || !body) {
             request(NetworkUtil.buildURL("/auth/id"), (err, res, body) => {
