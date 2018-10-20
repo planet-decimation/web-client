@@ -1,0 +1,32 @@
+.error-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #B2221F;
+    display: flex;
+}
+.error-page .pad {
+    flex-grow: 1;
+}
+.error-page > .main {
+    display: flex;
+    flex-direction: column;
+}
+.error-page main {
+    background-color: #FF1713;
+    box-shadow: 2px 2px 5px #000000;
+    text-align: center;
+    padding: 20px;
+    color: #FFFFFF;
+}
+.error-page a {
+    text-decoration: none;
+    color: inherit;
+    background-color: #046AB2;
+    padding: 10px;
+}
+.error-page a:hover, .error-page a:active {
+    background-color: #2485CC;
+}
