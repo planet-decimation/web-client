@@ -3,7 +3,7 @@ const argRegex = /<[^>]+>/;
 
 export default class NetworkUtil {
     static buildURL(format, ...args) {
-        return args.reduce((str, arg) => str.replace(argRegex, arg), `${localStorage.planet_decimation_api || defaultURL}/${format}`);
+        return args.reduce((str, arg) => str.replace(argRegex, arg), `${localStorage.planet_decimation_api || defaultURL}/${format}`).replace(/([^:])\/\/+/g, "$1/");
     }
 }
 
