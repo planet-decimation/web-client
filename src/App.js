@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from "./HomePage/HomePage";
-import AboutPage from "./AboutPage/AboutPage";
+import Game from "./Game/GamePage";
 
 export default class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact={true} component={HomePage} />
-                    <Route path="/about" component={AboutPage} />
+                    <Route path="/" component={Game} />
                 </Switch>
             </BrowserRouter>
         );
